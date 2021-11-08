@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.9)
 project(AutopatcherClientGFx3)
 IF(WIN32 AND NOT UNIX)
 	FINDD3D()
