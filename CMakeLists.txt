@@ -25,12 +25,13 @@ ENDIF(WIN32 AND NOT UNIX)
 set(CMAKE_DEBUG_POSTFIX "_d")
 
 # Options
-option( RAKNET_ENABLE_SAMPLES 	"Generate RakNet sample projects if true." 		TRUE  )
-option( RAKNET_ENABLE_DLL		"Generate the DLL project if true." 			TRUE )
-option( RAKNET_ENABLE_STATIC	"Generate the static library project if true." 	TRUE )
-option( RAKNET_GENERATE_INCLUDE_ONLY_DIR "Setup a include/RakNet/ directory in which all the headers are copied." FALSE )
+option( RAKNET_ENABLE_SAMPLES  "Generate RakNet sample projects if true." 		TRUE )
+option( RAKNET_ENABLE_DLL		  "Generate the DLL project if true." 			      TRUE )
+option( RAKNET_ENABLE_STATIC  "Generate the static library project if true." 	TRUE )
+option( RAKNET_GENERATE_INCLUDE_ONLY_DIR
+  "Setup a include/RakNet/ directory in which all the headers are copied."    FALSE )
 
-set( RAKNETHEADERFILES ${RakNet_SOURCE_DIR}/Source ) #This name doesn't follow CMake conventions but for retro compatibility I'll let it there.
+set( RAKNETHEADERFILES ${RakNet_SOURCE_DIR}/Source ) # This name doesn't follow CMake conventions but for retro compatibility I'll let it there.
 
 if( RAKNET_GENERATE_INCLUDE_ONLY_DIR )
 	set( RAKNET_INCLUDE_ONLY_DIR ${RakNet_SOURCE_DIR}/include ) # this will be visible by client code
@@ -45,12 +46,11 @@ endif()
 set( RAKNET_INCLUDE_DIRS ${RAKNETHEADERFILES} ${RAKNET_INCLUDE_ONLY_DIR} ) # Visible from outside
 
 include(./CmakeIncludes/CmakeMacros.txt)
+
 FIXLINKOPTIONS()
 FIXCOMPILEOPTIONS()
 
-
 add_subdirectory(Lib)
-
 
 set(RAKNET_COMMON_LIBS RakNetLibStatic)
 
