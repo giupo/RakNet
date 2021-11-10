@@ -23,6 +23,12 @@
 #include "VitaIncludes.h"
 #include "errno.h"
 
+#if !defined(_WIN32)
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netdb.h>
+#endif
+
 #ifndef INVALID_SOCKET
 #define INVALID_SOCKET -1
 #endif

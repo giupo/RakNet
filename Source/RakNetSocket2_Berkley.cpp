@@ -282,7 +282,7 @@ RNS2BindResult RNS2_Berkley::BindSharedIPV4And6( RNS2_BerkleyBindParameters *bin
 
 	// On Ubuntu, "" returns "No address associated with hostname" while 0 works.
 	if (bindParameters->hostAddress && 
-		(_stricmp(bindParameters->hostAddress,"UNASSIGNED_SYSTEM_ADDRESS")==0 || bindParameters->hostAddress[0]==0))
+		(strcmp(bindParameters->hostAddress,"UNASSIGNED_SYSTEM_ADDRESS")==0 || bindParameters->hostAddress[0]==0))
 	{
 		getaddrinfo(0, portStr, &hints, &servinfo);
 	}
