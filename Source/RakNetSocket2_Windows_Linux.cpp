@@ -11,8 +11,11 @@
 #include "EmptyHeader.h"
 
 #include <sys/types.h>
+
+#ifndef _WIN32
 #include <sys/socket.h>
 #include <netdb.h>
+#endif
 
 #ifdef RAKNET_SOCKET_2_INLINE_FUNCTIONS
 
